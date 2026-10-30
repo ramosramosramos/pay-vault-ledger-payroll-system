@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Concerns\HasEnumOption;
+use App\Models\User;
 use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
@@ -11,10 +11,13 @@ use Illuminate\Console\Command;
 #[Description('Command description')]
 class DumpCommand extends Command
 {
-    use HasEnumOption;
-
     /**
      * Execute the console command.
      */
-    public function handle() {}
+    public function handle()
+    {
+        $user = User::find(1);
+        $old = $user->model_type;
+
+    }
 }

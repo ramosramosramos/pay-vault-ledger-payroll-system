@@ -23,4 +23,14 @@ trait HasEnumOption
 
         return $options;
     }
+
+    public static function optionKeys(): array
+    {
+
+        if (! enum_exists(self::class)) {
+            throw new \BadMethodCallException;
+        }
+
+        return array_column(self::cases(), 'value');
+    }
 }
